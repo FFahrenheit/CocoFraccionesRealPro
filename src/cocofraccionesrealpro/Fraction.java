@@ -29,8 +29,7 @@ public class Fraction
      */
     private void init()
     {
-        op3 = new int[2];
-        op3[0] = 1;
+        op3 = new int[]{0,0};
         numeros_sN = new String[]{"cero","un","dos","tres","cuatro","cinco","seis",
                                 "siete","ocho","nueve","diez","once","doce",
                                 "trece","catorce","quince","dieciseis","diecisiete","dieciocho","diecinueve","veinte",
@@ -45,7 +44,9 @@ public class Fraction
     }
     
     /**
-     * Ruinas de un debugger aburrido
+     * Ruinas de un debugger extraño.
+     * Se usa para imrprimir un numero n 
+     * en letra, y su respectivo denominador
      * @param n numero a imprimir en letra
      */
     Fraction(int n)
@@ -125,7 +126,6 @@ public class Fraction
      */
     private String getStNumber(int _n)
     {
-        int original=_n;
         if(_n==1)
         {
             return "un";
