@@ -66,17 +66,22 @@ public class Fraction
         s = _operation;
         parts = s.split(" ");
         partsCount = parts.length;        
+        error = true;
         for (int i = 0; i < partsCount; i++) 
         {
-            if(isOperation(parts[i]))
+            if(isOperation(parts[i]) && i!=0 & i!=(partsCount-1))
             {
+                error = false;
                 partsOp1 = i;
                 partsOp2 = partsCount - i-1;
                 break;
             }
         }
-        op1 = readOperation(0,partsOp1);
-        op2 = readOperation(partsOp1+1, partsCount);
+        if(!error)
+        {
+            op1 = readOperation(0,partsOp1);
+            op2 = readOperation(partsOp1+1, partsCount);   
+        }
     }
     
     /**
@@ -293,7 +298,14 @@ public class Fraction
                 ans+=getUnit(_n%10);
             }
         }
-        return op3[0]==1? ans+"avo": ans+"avos";
+        if(ans.substring(ans.length() - 1)!="a")
+        {
+                    return op3[0]==1? ans+"avo": ans+"avos";
+        }
+        else
+        {
+                                return op3[0]==1? ans+"vo": ans+"vos";
+        }
     }
     
     /**
