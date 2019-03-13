@@ -119,6 +119,10 @@ public class Fraction
         }
         op3[0] = num;
         op3[1] = den;
+        if(op1[1] == 0 || op2[1]==0 || (op2[0]==0 && operation==3))
+        {
+            return "Error matemático";
+        }
         String numerador = getStNumber(num);
         String denominador = getStFraction(den);
         return numerador+" "+denominador;
